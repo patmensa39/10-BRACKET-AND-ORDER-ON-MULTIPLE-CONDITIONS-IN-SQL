@@ -1,0 +1,32 @@
+--10 BRACKET AND ORDER ON MULTIPLE CONDITIONS
+/* Get all invoices that are greater than $1.98 from any city whose name starts with P or starts with D
+Created by Patrick Mensah 
+Date Created: 04/08/2023
+Description: The query shows how to get all invoices that are greater than $1.98 from any city whose name starts with P or starts with D
+BODMAS works here or the query will show different solution
+*/
+
+SELECT 
+    InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address',
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    Total >1.98 AND (BillingCity LIKE 'P%' OR BillingCity LIKE 'D%')
+ORDER BY 
+    InvoiceDate
+    
+--Another way 
+SELECT 
+    InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address',
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+     (BillingCity LIKE 'P%' OR BillingCity LIKE 'D%') AND Total >1.98 
+ORDER BY 
+    InvoiceDate
